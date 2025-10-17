@@ -1,12 +1,12 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 from datetime import datetime
-# from uuid import UUID
+from uuid import UUID
 
 class UserCreate(BaseModel):
-    user_name: str = Field(..., min_length=5)
+    user_name: str = Field(..., min_length=2)
     user_email: EmailStr
-    password: str = Field(..., min_length=8)
+    password: str = Field(..., min_length=6)
 
 class UserOut(BaseModel):
     user_id: str
@@ -14,6 +14,10 @@ class UserOut(BaseModel):
     user_email: EmailStr
     create_on: datetime
     last_update: Optional[datetime]
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
 
 class NoteIn(BaseModel):
     note_title: str
@@ -25,4 +29,4 @@ class NoteOut(BaseModel):
     note_content: str
     created_on: datetime
     last_update: Optional[datetime]
-    owner_id: int # from whom the notes is created (which is not in the requirement)
+    owner_id: str
