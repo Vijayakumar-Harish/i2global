@@ -25,4 +25,4 @@ class NoteOut(BaseModel):
     note_content: str
     created_on: datetime
     last_update: Optional[datetime]
-    owner_id: str # from whom the notes is created (which is not in the requirement)
+    owner_id: int # from whom the notes is created (which is not in the requirement)
