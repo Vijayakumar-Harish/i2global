@@ -30,3 +30,7 @@ class NoteOut(BaseModel):
     created_on: datetime
     last_update: Optional[datetime]
     owner_id: str
+
+class UserLogin(BaseModel):
+    user_email: EmailStr
+    password: str = Field(..., min_length=6)

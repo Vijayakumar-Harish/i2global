@@ -9,10 +9,10 @@ def writter():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=["http://localhost:3000"],   # your Next URL
+    allow_credentials=True,                    # ← allow cookies / headers
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"],                       # ← Authorization is allowed
 )
 
 app.include_router(router)
