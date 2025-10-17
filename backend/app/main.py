@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from .routes import router
 
-app = FastAPI(title="Write Logger")
+app = FastAPI(title="Writer Logger")
 
 @app.get("/")
 def writter():
